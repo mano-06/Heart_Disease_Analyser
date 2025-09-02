@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{% static 'prediction/result.css'%}">
+</head>
+<body>
+    <header>
+        <a href="/"><img class="logo" src="{% static 'prediction/logo/logo1.png' %}" alt="logo"></a>
+        <div class="Plan1"><a class="Plan"href="/%2Fplans">View Plans</a></div>
+    </header>
+    <main>
+    <h1>Heart Failure Prediction</h1>
+    <p><span>{{ name }}</span>, based on the data you provided, the prediction is: <br><br>
+        {% if prediction == 1 %}
+            <strong class="highRisk">High Risk of Heart Failure</strong><br>
+        {% else %}
+            <strong class="lowRisk">Low Risk of Heart Failure</strong>
+        {% endif %}
+    </p>
+    <a class="goBack" href="/">Go Back</a>
+</main>
+</body>
+</html>

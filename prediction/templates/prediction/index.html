@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Health Analysis</title>
+    <link rel="stylesheet" href="{% static 'prediction/index.css' %}">
+</head>
+<body>
+    <header>
+        <a href="/"><img class="logo" src="{% static 'prediction/logo/logo1.png' %}" alt="logo"></a>
+        <div class="Plan1"><a class="Plan"href="/%2Fplans">View Plans</a></div>
+    </header>
+    <main>
+        <h1 class="head">Heart Health Analysis</h1>
+        <form action="{% url 'predict' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="Name">Name: </label>
+                <input type="text" id="Name" name="Name">
+            </div>
+            <div class="form-group">
+                <label for="num1">Age: </label>
+                <input type="text" id="num1" name="num1">
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <select id="sex" name="sex">
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="chestPainType">Chest Pain Type:</label>
+                <select id="chestPainType" name="chestPainType">
+                    <option value="0">ASY-Asymptomatic</option>
+                    <option value="1">ATA-Atypical Angina</option>
+                    <option value="2">NAP-Non Anginal Pain</option>
+                    <option value="3">TA-Typical Angina</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="num4">Resting BP: </label>
+                <input type="text" id="num4" name="num4">
+            </div>
+            <div class="form-group">
+                <label for="num5">Cholesterol: </label>
+                <input type="text" id="num5" name="num5">
+            </div>
+            <div class="form-group">
+                <label for="fastingBs">Fasting Blood Sugar:</label>
+                <select id="fastingBs" name="fastingBs">
+                    <option value="1">120mg/dl</option>
+                    <option value="0">otherwise</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="restingECG">Resting ECG:</label>
+                <select id="restingECG" name="restingECG">
+                    <option value="1">Normal</option>
+                    <option value="0">LVH-Left Ventricular Hypertrophy</option>
+                    <option value="2">ST-T Wave Abnormality</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="num8">MaxHR: </label>
+                <input type="text" id="num8" name="num8">
+            </div>
+            <div class="form-group">
+                <label for="exerciseAngina">Exercise Angina:</label>
+                <select id="exerciseAngina" name="exerciseAngina">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="num10">OldPeak: </label>
+                <input type="text" id="num10" name="num10">
+            </div>
+            <div class="form-group">
+                <label for="stslope">ST Slope:</label>
+                <select id="stslope" name="stslope">
+                    <option value="1">Flat</option>
+                    <option value="0">Down</option>
+                    <option value="2">Up</option>
+                </select>
+            </div>
+            <div class="btn">
+                <button class="Analyse" type="submit">Analyse</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
